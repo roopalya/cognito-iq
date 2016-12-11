@@ -1,11 +1,7 @@
 ---
-- name: Update apt cache
-  apt: update_cache=yes cache_valid_time=3600
-  sudo: yes
-
 - name: Install required software
-  apt: name={{ item }} state=present
-  sudo: yes
+  yum: name={{ item }} state=present
+  become: true
   with_items:
     - apache2
     - php5-mysql
@@ -15,8 +11,8 @@
     - python-mysqldb
 
 - name: Install php extensions
-  apt: name={{ item }} state=present
-  sudo: yes
+  yum: name={{ item }} state=present
+  become: true
   with_items:
     - php5-gd 
     - libssh2-php
