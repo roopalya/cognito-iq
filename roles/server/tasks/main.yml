@@ -1,6 +1,6 @@
 ---
 - name: Install required software
-  yum: name={{ item }} state=present
+  apt: name={{ item }} state=present
   become: true
   with_items:
     - apache2
@@ -11,7 +11,7 @@
     - python-mysqldb
 
 - name: Install php extensions
-  yum: name={{ item }} state=present
+  apt: name={{ item }} state=present
   become: true
   with_items:
     - php5-gd 
