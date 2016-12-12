@@ -15,4 +15,4 @@
   become: true
   with_items:
     - php-gd 
-    - libssh2-php
+    - php-ssh2
